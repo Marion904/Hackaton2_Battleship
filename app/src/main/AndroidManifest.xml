@@ -3,11 +3,13 @@
     package="com.example.wilder.myapplication">
 
     <uses-feature android:name="android.hardware.bluetooth" />
+
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,9 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".BlueToothActivity"></activity>
-
+        <activity android:name=".MainActivity" />
+        <activity android:name=".BlueToothActivity" />
         <activity
             android:name=".MenuActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -29,8 +30,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PlaceBoat" />
         <activity android:name=".GameActivity"></activity>
     </application>
-
 
 </manifest>
