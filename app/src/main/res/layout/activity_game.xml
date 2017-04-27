@@ -23,25 +23,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ship1_button"
-        android:id="@+id/LShape"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ship2_button"
-        android:id="@+id/UShape"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ship3_button"
-        android:id="@+id/Line3"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ship5_button"
-        android:id="@+id/Line2"/>
 </android.support.constraint.ConstraintLayout>

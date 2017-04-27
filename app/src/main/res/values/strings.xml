@@ -10,4 +10,6 @@
     <string name="ship3_button">2Line</string>
     <string name="ship5_button">3Line</string>
     <string name="pick_ship">Quel navire?</string>
+    <string name="AlreadyAfloat">Ton navire est déjà positionné!</string>
+    <string name="orientation">Quelle orientation?</string>
 </resources>
