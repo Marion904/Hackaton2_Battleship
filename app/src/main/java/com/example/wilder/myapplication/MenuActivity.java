@@ -39,8 +39,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         if (i == R.id.TwoPlayerBluetooth){
+            startActivity(new Intent(getApplicationContext(), BlueToothActivity.class));
+        }
+
 
         }
 
     }
-}
