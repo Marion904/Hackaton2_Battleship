@@ -18,7 +18,7 @@ public class GameActivity extends AppCompatActivity {
     Ship ship1 = new Ship(1,4,"LShape");
     Ship ship2 = new Ship(4,5,"UShape");
     Ship ship3 = new Ship(3,3,"Line3");
-    Ship ship4 = new Ship(2,2,"Line2");
+    Ship ship4 = new Ship(3,3,"Line3");
     Ship ship5 = new Ship(2,2,"Line2");
 
 
@@ -56,5 +56,6 @@ public class GameActivity extends AppCompatActivity {
 
 
 
-
 }
+
+
