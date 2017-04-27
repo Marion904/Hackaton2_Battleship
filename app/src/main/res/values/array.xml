@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string-array name="ships_array">socksCategory
+            <item>Chaussettes</item>
+            <item>Chaussons</item>
+            <item>Tongs</item>
+            <item>Aucune catégorie</item>
+        </string-array>
+</resources>

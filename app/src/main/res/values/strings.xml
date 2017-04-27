@@ -4,4 +4,10 @@
     <string name="title_activity_menu">MenuActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="new_ship_button">Ajouter un navire</string>
+    <string name="ship1_button">LSHAPE</string>
+    <string name="ship2_button">USHAPE</string>
+    <string name="ship3_button">2Line</string>
+    <string name="ship5_button">3Line</string>
+    <string name="pick_ship">Quel navire?</string>
 </resources>
