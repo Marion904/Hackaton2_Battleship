@@ -49,9 +49,14 @@ public class GameActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, final View v,
                                     final int position, long id) {
 
-                /**
-                ImageView imageView = (ImageView) v ;
-                imageView.setImageResource(R.drawable.explodepng);**/
+                
+                imageView.setImageResource(R.drawable.explodepng);
+
+              
+                onCreateDialog();
+                Toast.makeText(GameActivity.this, "Choisis ton bateau",
+                        Toast.LENGTH_SHORT).show();
+
                 android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(GameActivity.this);
                 builder.setTitle(R.string.pick_ship)
                         .setItems(R.array.ships_array, new DialogInterface.OnClickListener() {
@@ -116,6 +121,7 @@ public class GameActivity extends AppCompatActivity {
                         });
                 builder.show();
                 Toast.makeText(GameActivity.this, "Choisis ton bateau",Toast.LENGTH_SHORT).show();
+
             }
         });
 
