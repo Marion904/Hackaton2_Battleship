@@ -1,18 +1,690 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.wilder.myapplication.MainActivity">
+    android:layout_height="wrap_content">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_gravity="top"
+        android:text="@string/foeGame"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"/>
 
-</android.support.constraint.ConstraintLayout>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/foes_game"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="0,1,2,3,4,5,6,7,8,9">
+
+
+
+    <View
+        android:layout_height="2dip"
+        android:background="@color/colorBorder" />
+
+    <TableRow
+        android:id="@+id/A">
+
+        <TextView
+            android:id="@+id/A1"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/A2"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/A3"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/A4"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/A5"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/A6"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/A7"
+            android:padding="2dip"
+            android:background="@color/colorPrimary" />
+        <TextView
+            android:id="@+id/A8"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/A9"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/A10"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+
+    </TableRow>
+
+    <View
+        android:layout_height="2dip"
+        android:background="@color/colorBorder" />
+
+    <TableRow
+        android:id="@+id/B">
+
+        <TextView
+            android:id="@+id/B1"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/B2"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/B3"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/B4"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/B5"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/B6"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/B7"
+            android:padding="2dip"
+            android:background="@color/colorPrimary" />
+        <TextView
+            android:id="@+id/B8"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/B9"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/B10"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/C">
+
+        <TextView
+            android:id="@+id/C1"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/C2"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/C3"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/C4"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/C5"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/C6"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/C7"
+            android:padding="2dip"
+            android:background="@color/colorPrimary" />
+        <TextView
+            android:id="@+id/C8"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/C9"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/C10"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/D">
+
+        <TextView
+            android:id="@+id/D1"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/D2"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/D3"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/D4"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/D5"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/D6"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/D7"
+            android:padding="2dip"
+            android:background="@color/colorPrimary" />
+        <TextView
+            android:id="@+id/D8"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/D9"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/D10"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/E">
+
+        <TextView
+            android:id="@+id/E1"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/E2"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/E3"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/E4"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/E5"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/E6"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/E7"
+            android:padding="2dip"
+            android:background="@color/colorPrimary" />
+        <TextView
+            android:id="@+id/E8"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/E9"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/E10"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/F">
+
+        <TextView
+            android:id="@+id/F1"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/F2"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/F3"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/F4"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/F5"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/F6"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/F7"
+            android:padding="2dip"
+            android:background="@color/colorPrimary" />
+        <TextView
+            android:id="@+id/F8"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/F9"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/F10"
+            android:padding="2dip"
+            android:background="@color/colorPrimary"/>
+
+    </TableRow>
+
+
+</TableLayout>
+
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:text="@string/myGame"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_game"
+    android:gravity="bottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="0,1,2,3,4,5,6,7,8,9">
+    <View
+        android:layout_height="2dip"
+        android:background="@color/colorBorder" />
+
+    <View
+        android:layout_height="2dip"
+        android:background="@color/colorBorder" />
+
+    <TableRow
+        android:id="@+id/meLine1">
+
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/meLine2">
+
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/meLine3">
+
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/meLine4">
+
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/meLine5">
+
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+        <TextView
+            android:text="X"
+            android:padding="2dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/meLine6">
+
+        <TextView
+            android:text="1"
+            android:padding="2dip" />
+        <TextView
+            android:text="2"
+            android:padding="2dip" />
+        <TextView
+            android:text="3"
+            android:padding="2dip" />
+        <TextView
+            android:text="4"
+            android:padding="2dip" />
+        <TextView
+            android:text="5"
+            android:padding="2dip" />
+        <TextView
+            android:text="6"
+            android:padding="2dip" />
+        <TextView
+            android:text="7"
+            android:padding="2dip" />
+        <TextView
+            android:text="8"
+            android:padding="2dip" />
+        <TextView
+            android:text="9"
+            android:padding="2dip" />
+        <TextView
+            android:text="10"
+            android:padding="2dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/meLine7">
+
+        <TextView
+            android:text="1"
+            android:padding="2dip" />
+        <TextView
+            android:text="2"
+            android:padding="2dip" />
+        <TextView
+            android:text="3"
+            android:padding="2dip" />
+        <TextView
+            android:text="4"
+            android:padding="2dip" />
+        <TextView
+            android:text="5"
+            android:padding="2dip" />
+        <TextView
+            android:text="6"
+            android:padding="2dip" />
+        <TextView
+            android:text="7"
+            android:padding="2dip" />
+        <TextView
+            android:text="8"
+            android:padding="2dip" />
+        <TextView
+            android:text="9"
+            android:padding="2dip" />
+        <TextView
+            android:text="10"
+            android:padding="2dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/meLine8">
+
+        <TextView
+            android:text="1"
+            android:padding="2dip" />
+        <TextView
+            android:text="2"
+            android:padding="2dip" />
+        <TextView
+            android:text="3"
+            android:padding="2dip" />
+        <TextView
+            android:text="4"
+            android:padding="2dip" />
+        <TextView
+            android:text="5"
+            android:padding="2dip" />
+        <TextView
+            android:text="6"
+            android:padding="2dip" />
+        <TextView
+            android:text="7"
+            android:padding="2dip" />
+        <TextView
+            android:text="8"
+            android:padding="2dip" />
+        <TextView
+            android:text="9"
+            android:padding="2dip" />
+        <TextView
+            android:text="10"
+            android:padding="2dip" />
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/meLine9">
+
+        <TextView
+            android:text="1"
+            android:padding="2dip" />
+        <TextView
+            android:text="2"
+            android:padding="2dip" />
+        <TextView
+            android:text="3"
+            android:padding="2dip" />
+        <TextView
+            android:text="4"
+            android:padding="2dip" />
+        <TextView
+            android:text="5"
+            android:padding="2dip" />
+        <TextView
+            android:text="6"
+            android:padding="2dip" />
+        <TextView
+            android:text="7"
+            android:padding="2dip" />
+        <TextView
+            android:text="8"
+            android:padding="2dip" />
+        <TextView
+            android:text="9"
+            android:padding="2dip" />
+        <TextView
+            android:text="10"
+            android:padding="2dip" />
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/meLine10">
+
+        <TextView
+            android:text="1"
+            android:padding="2dip" />
+        <TextView
+            android:text="2"
+            android:padding="2dip" />
+        <TextView
+            android:text="3"
+            android:padding="2dip" />
+        <TextView
+            android:text="4"
+            android:padding="2dip" />
+        <TextView
+            android:text="5"
+            android:padding="2dip" />
+        <TextView
+            android:text="6"
+            android:padding="2dip" />
+        <TextView
+            android:text="7"
+            android:padding="2dip" />
+        <TextView
+            android:text="8"
+            android:padding="2dip" />
+        <TextView
+            android:text="9"
+            android:padding="2dip" />
+        <TextView
+            android:text="10"
+            android:padding="2dip" />
+
+    </TableRow>
+
+</TableLayout>
+
+</LinearLayout>
