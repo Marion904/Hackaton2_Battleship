@@ -7,19 +7,23 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 /**
  * Created by mathieu on 27/04/17.
  */
 
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
+    private ArrayList<Cell> mCells;
 
-    public ImageAdapter(Context c) {
+    public ImageAdapter(Context c, ArrayList<Cell> cells) {
         mContext = c;
+        mCells = cells;
     }
 
     public int getCount() {
-        return mThumbIds.length;
+        return 100/**mThumbIds.length**/;
     }
 
     public Object getItem(int position) {
@@ -32,8 +36,12 @@ public class ImageAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
+
+        Cell c = mCells.get(position);
+
         ImageView imageView;
         if (convertView == null) {
+
             // if it's not recycled, initialize some attributes
             BoardCell boardCell = new BoardCell(1, 1);
             imageView = new ImageView(mContext);
@@ -43,10 +51,25 @@ public class ImageAdapter extends BaseAdapter {
         } else {
             imageView = (ImageView) convertView;
         }
+        imageView.setImageResource(c.getmImageView());
+        /**
+        if(cell.mBoat){
+            imageView.setImageResource(R.drawable.seatexture);
+        }else{
+            imageView.setImageResource(R.drawable.explodepng);
+            //imageView.setImageResource(mThumbIds[position]);
+        }**/
 
-        imageView.setImageResource(mThumbIds[position]);
         return imageView;
     }
+/**
+    public void updateImage(int position, int resourceId)
+    {
+        mThumbIds[position] = resourceId;
+        notifyDataSetChanged();
+    }
+
+
 
     // references to our images
     private Integer[] mThumbIds = {
@@ -101,4 +124,29 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
     };
+
+    private Integer[] mThumbIds2 = {
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng,
+            R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng, R.drawable.explodepng
+    };
+
+**/
 }
