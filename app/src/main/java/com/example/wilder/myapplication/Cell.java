@@ -1,10 +1,13 @@
 package com.example.wilder.myapplication;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by wilder on 27/04/17.
  */
 
-public class Cell {
+public class Cell implements Parcelable{
     int mPosition;
     boolean mBoat;
     int mImageView;
@@ -14,6 +17,24 @@ public class Cell {
         mImageView = R.drawable.seatexture;
         mBoat=false;
     }
+
+    protected Cell(Parcel in) {
+        mPosition = in.readInt();
+        mBoat = in.readByte() != 0;
+        mImageView = in.readInt();
+    }
+
+    public static final Creator<Cell> CREATOR = new Creator<Cell>() {
+        @Override
+        public Cell createFromParcel(Parcel in) {
+            return new Cell(in);
+        }
+
+        @Override
+        public Cell[] newArray(int size) {
+            return new Cell[size];
+        }
+    };
 
     public int getmPosition() {
         return mPosition;
@@ -38,5 +59,17 @@ public class Cell {
 
     public int getmImageView() {
         return mImageView;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(mPosition);
+        dest.writeByte((byte) (mBoat ? 1 : 0));
+        dest.writeInt(mImageView);
     }
 }

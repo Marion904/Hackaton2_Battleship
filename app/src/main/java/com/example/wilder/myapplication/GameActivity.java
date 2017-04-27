@@ -23,23 +23,20 @@ public class GameActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        Intent transferDatas = getIntent();
-        transferDatas.getIntArrayExtra("oui");
+        Intent startGame = getIntent();
+        ArrayList<Cell> myCells = startGame.getParcelableArrayListExtra("oui");
+        ImageAdapter myAdapter2 = new ImageAdapter(GameActivity.this,myCells);
 
-
-
-        for (int i = 0; i < 100; i++) {
-            mCells.add(new Cell(i));
-        }
 
 
         gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(mAdapter);
+        gridview.setAdapter(myAdapter2);
 
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

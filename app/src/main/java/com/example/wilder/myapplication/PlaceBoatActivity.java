@@ -1,10 +1,12 @@
 package com.example.wilder.myapplication;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ public class PlaceBoatActivity extends AppCompatActivity {
     ArrayList<Cell> ship3Cells=new ArrayList<>();
     ArrayList<Cell> ship4Cells=new ArrayList<>();
     ArrayList<Cell> ship5Cells=new ArrayList<>();
+    Button playButton;
 
 
 
@@ -37,6 +40,7 @@ public class PlaceBoatActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_boat);
+        playButton =(Button) findViewById(R.id.startButton);
 
         myFloat.add(ship1);
         myFloat.add(ship2);
@@ -218,38 +222,20 @@ public class PlaceBoatActivity extends AppCompatActivity {
             }
         });
 
+    playButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if(ship1.getmPositionned() && ship2.getmPositionned() && ship3.getmPositionned() && ship4.getmPositionned() && ship5.getmPositionned()){
+                Intent startGame = new Intent(PlaceBoatActivity.this, GameActivity.class);
+                startGame.putExtra("oui",mCells);
+                startActivity(startGame);
+            }else{
+                Toast.makeText(PlaceBoatActivity.this, R.string.missing_ship,Toast.LENGTH_SHORT).show();
+            }
+        }
+    });
 
     }
-
-    public void directShip(final Ship ship){
-        android.app.AlertDialog.Builder direction = new android.app.AlertDialog.Builder(PlaceBoatActivity.this);
-        direction.setTitle(R.string.orientation)
-                .setItems(R.array.orientation_array, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case 0:/**NORD**/
-                                ship.setmDirection(Direction.NORTH);
-                                //positionShip(ship);
-                                break;
-                            case 1:/**SUD**/
-                                ship.setmDirection(Direction.SOUTH);
-
-                                break;
-                            case 2:/**EST**/
-                                ship.setmDirection(Direction.EAST);
-                                break;
-                            case 3:/**OUEST**/
-                                ship.setmDirection(Direction.WEST);
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                });
-        direction.show();
-
-    }
-
 
 }
 
