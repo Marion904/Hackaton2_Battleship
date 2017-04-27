@@ -60,7 +60,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
               
                 onCreateDialog();
-                Toast.makeText(GameActivity.this, "Choisis ton bateau")
+                Toast.makeText(GameActivity.this, "Choisis ton bateau",
                         Toast.LENGTH_SHORT).show();
             }
         });
