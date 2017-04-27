@@ -20,7 +20,7 @@ public class GameActivity extends AppCompatActivity {
     Ship ship1 = new Ship(1,4,"LShape");
     Ship ship2 = new Ship(4,5,"UShape");
     Ship ship3 = new Ship(3,3,"Line3");
-    Ship ship4 = new Ship(2,2,"Line2");
+    Ship ship4 = new Ship(3,3,"Line3");
     Ship ship5 = new Ship(2,2,"Line2");
 
 
@@ -49,65 +49,90 @@ public class GameActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, final View v,
                                     final int position, long id) {
 
-                /**
-                ImageView imageView = (ImageView) v ;
-                imageView.setImageResource(R.drawable.explodepng);**/
                 android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(GameActivity.this);
                 builder.setTitle(R.string.pick_ship)
                         .setItems(R.array.ships_array, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                switch (which){
+                                switch (which) {
                                     case 0:/**NavireL**/
-                                        if(ship1.getmPositionned()){
-                                            Toast.makeText(GameActivity.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT).show();
-                                            return;
+                                        if (ship1.getmPositionned()) {
+                                            Toast.makeText(GameActivity.this, getString(R.string.AlreadyAfloat), Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            ship1.setmStartx(position);
+                                            ship1.setmPositionned(true);
+                                            int x = position;
+                                            Cell ship1Cell1 = mCells.get(position);
+                                            Cell ship1Cell2 = mCells.get(position + 1);
+                                            Cell ship1Cell3 = mCells.get(position - 10);
+                                            Cell ship1Cell4 = mCells.get(position - 20);
+                                            ship1Cell1.setmBoat(true);
+                                            ship1Cell2.setmBoat(true);
+                                            ship1Cell3.setmBoat(true);
+                                            ship1Cell4.setmBoat(true);
+                                            mAdapter.notifyDataSetChanged();
                                         }
-                                        ship1.setmStartx(position);
-                                        int x = position;
-                                        int x2 = x-10;
-                                        int x3 = x-20;
-                                        int x4 = x-1;
-
-
-                                        Cell theCell = mCells.get(x);
-                                        Cell theCell2 = mCells.get(x2);
-                                        Cell theCell3 = mCells.get(x3);
-                                        Cell theCell4 = mCells.get(x4);
-                                        theCell.setmBoat(true);
-                                        theCell2.setmBoat(true);
-                                        theCell3.setmBoat(true);
-                                        theCell4.setmBoat(true);
-                                        mAdapter.notifyDataSetChanged();
 
                                         break;
                                     case 1:/**Navire U**/
-                                        if(ship2.getmPositionned()){
-                                            Toast.makeText(GameActivity.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT);
-                                            break;
+                                        if (ship2.getmPositionned()) {
+                                            Toast.makeText(GameActivity.this, getString(R.string.AlreadyAfloat), Toast.LENGTH_SHORT).show();
+                                        } else{
+                                            ship2.setmStartx(position);
+                                            ship2.setmPositionned(true);
+                                            Cell ship2Cell1 = mCells.get(position);
+                                            Cell ship2Cell2 = mCells.get(position + 1);
+                                            Cell ship2Cell3 = mCells.get(position - 1);
+                                            Cell ship2Cell4 = mCells.get(position - 9);
+                                            Cell ship2Cell5 = mCells.get(position - 11);
+                                            ship2Cell1.setmBoat(true);
+                                            ship2Cell2.setmBoat(true);
+                                            ship2Cell3.setmBoat(true);
+                                            ship2Cell4.setmBoat(true);
+                                            ship2Cell5.setmBoat(true);
+                                            mAdapter.notifyDataSetChanged();
                                         }
-                                        ship2.setmStartx(position);
-                                        directShip(ship2);
                                         break;
 
                                     case 2:/**Navire L3**/
-                                        if(ship3.getmPositionned()){
-                                            Toast.makeText(GameActivity.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT);
-                                         break;
+                                        if (ship3.getmPositionned()) {
+                                            if (ship4.getmPositionned()) {
+                                                Toast.makeText(GameActivity.this, getString(R.string.AlreadyAfloat), Toast.LENGTH_SHORT).show();
+                                            }else{
+                                            ship4.setmStartx(position);
+                                                ship4.setmPositionned(true);
+                                            Cell ship4Cell1 = mCells.get(position);
+                                            Cell ship4Cell2 = mCells.get(position + 1);
+                                            Cell ship4Cell3 = mCells.get(position - 1);
+                                            ship4Cell1.setmBoat(true);
+                                            ship4Cell2.setmBoat(true);
+                                            ship4Cell3.setmBoat(true);
+                                            mAdapter.notifyDataSetChanged();
+                                            }
+                                        }else{
+                                            ship3.setmStartx(position);
+                                            ship3.setmPositionned(true);
+                                            Cell ship3Cell1 = mCells.get(position);
+                                            Cell ship3Cell2 = mCells.get(position + 1);
+                                            Cell ship3Cell3 = mCells.get(position - 1);
+                                            ship3Cell1.setmBoat(true);
+                                            ship3Cell2.setmBoat(true);
+                                            ship3Cell3.setmBoat(true);
+                                            mAdapter.notifyDataSetChanged();
                                         }
-                                        ship3.setmStartx(position);
-                                        directShip(ship3);
                                         break;
                                     case 3:/**Navire L2**/
-                                        if(ship4.getmPositionned()){
-                                            if(ship5.getmPositionned()) {
-                                                Toast.makeText(GameActivity.this, getString(R.string.AlreadyAfloat), Toast.LENGTH_SHORT);
-                                            }
+                                        if (ship5.getmPositionned()) {
+                                            Toast.makeText(GameActivity.this, getString(R.string.AlreadyAfloat), Toast.LENGTH_SHORT).show();
+                                            return;
+                                        }else{
                                             ship5.setmStartx(position);
-                                            directShip(ship5);
-                                            break;
+                                            ship5.setmPositionned(true);
+                                            Cell ship5Cell1 = mCells.get(position);
+                                            Cell ship5Cell2 = mCells.get(position + 1);
+                                            ship5Cell1.setmBoat(true);
+                                            ship5Cell2.setmBoat(true);
+                                            mAdapter.notifyDataSetChanged();
                                         }
-                                        ship4.setmStartx(position);
-                                        directShip(ship4);
                                         break;
                                     default:
                                         Toast.makeText(GameActivity.this, R.string.choose,Toast.LENGTH_SHORT).show();
@@ -115,7 +140,6 @@ public class GameActivity extends AppCompatActivity {
                             }
                         });
                 builder.show();
-                Toast.makeText(GameActivity.this, "Choisis ton bateau",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -151,84 +175,7 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    public void drawShip(Ship ship){
-        int type = ship.getmType();
-        int x =ship.getmStartx();
-        Direction dir = ship.getmDirection();
-        switch (type){
-            case 1:
-                /**if(dir == Direction.NORTH) {
-                    //ArrayList <Cell> boat =new ArrayList<>();**/
-                    Cell cell = new Cell(x);
-                    cell.setmBoat(true);
-                    Cell cell2 = new Cell(x-10);
-                    cell2.setmBoat(true);
-                    Cell cell3 = new Cell(x-20);
-                    cell3.setmBoat(true);
-                    Cell cell4 = new Cell(x-1);
-                    cell4.setmBoat(true);
-                //}
-                break;
-            case 2:
-                if(dir == Direction.NORTH) {
-
-
-                }
-                if(dir == Direction.EAST) {
-
-                    //x,x-10,x-20,x-1;
-                    return;
-                }
-                if(dir == Direction.WEST) {
-
-                    //x,x-10,x-20,x-1;
-                    return;
-                }
-                if(dir == Direction.SOUTH) {
-
-
-                }
-                break;
-            case 3:
-                if(dir == Direction.NORTH) {
-
-                }
-                if(dir == Direction.EAST) {
-
-                }
-                if(dir == Direction.WEST) {
-
-                }
-                if(dir == Direction.SOUTH) {
-
-                }
-                break;
-            case 4:
-                if(dir == Direction.NORTH) {
-
-                }
-                if(dir == Direction.EAST) {
-
-                }
-                if(dir == Direction.WEST) {
-
-                }
-                if(dir == Direction.SOUTH) {
-
-                }
-                break;
-        }
-        /** LSHAPE(1,3,"LShape"),
-         LINE2(2,2,"Line2"),
-         LINE3(3,3,"Line3"),
-         USHAPE(4,3,"UShape"),;
-
-         NORTH(1,"North"),
-         SOUTH(2,"South"),
-         EAST(3,"East"),
-         WEST(4,"West");
-         **/
-    }
-
 
 }
+
+
