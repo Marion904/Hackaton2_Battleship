@@ -8,43 +8,30 @@
     android:transitionGroup="true">
 
     <TextView
-        android:id="@+id/textview"
+        android:id="@+id/textviewTitre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bluetooth"
+        android:textStyle="bold"
         android:textSize="35dp"
+        android:textColor="#ff7206"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp" />
+        android:layout_marginTop="12dp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textview"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ff7aff24"
-        android:textSize="35dp" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-
-        android:theme="@style/Base.TextAppearance.AppCompat" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Turn On"
         android:id="@+id/buttonTurnOn"
+        android:textColor="#7aff06"
         android:clickable="true"
         android:onClick="on"
-        android:layout_above="@+id/buttonTurnOff"
-        android:layout_toLeftOf="@+id/textview"
-        android:layout_toStartOf="@+id/textview" />
+        android:layout_below="@+id/textviewTitre"
+        android:layout_toLeftOf="@+id/textviewTitre"
+        android:layout_toStartOf="@+id/textviewTitre"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -52,8 +39,8 @@
         android:text="Get visible"
         android:onClick="visible"
         android:id="@+id/buttonVisible"
-        android:layout_alignBaseline="@+id/buttonDevices"
-        android:layout_alignBottom="@+id/buttonDevices"
+        android:layout_alignBaseline="@+id/buttonTurnOn"
+        android:layout_alignBottom="@+id/buttonTurnOn"
         android:layout_toRightOf="@+id/buttonTurnOn"
         android:layout_toEndOf="@+id/buttonTurnOn" />
 
@@ -63,7 +50,8 @@
         android:text="List devices"
         android:onClick="list"
         android:id="@+id/buttonDevices"
-        android:layout_below="@+id/textView"
+        android:layout_alignBaseline="@+id/buttonVisible"
+        android:layout_alignBottom="@+id/buttonVisible"
         android:layout_toRightOf="@+id/buttonVisible"
         android:layout_toEndOf="@+id/buttonVisible" />
 
@@ -71,6 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="turn off"
+        android:textColor="#c7150f"
         android:onClick="off"
         android:id="@+id/buttonTurnOff"
         android:layout_below="@+id/buttonVisible"
@@ -81,17 +70,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/listViewUsers"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/buttonTurnOn"
-        android:layout_alignStart="@+id/buttonTurnOn"
-        android:layout_below="@+id/textView2" />
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Paired devices:"
         android:id="@+id/textView2"
-        android:textColor="#ff34ff06"
+        android:textColor="#8706ff"
         android:textSize="25dp"
         android:layout_below="@+id/buttonTurnOff"
         android:layout_alignLeft="@+id/listViewUsers"
