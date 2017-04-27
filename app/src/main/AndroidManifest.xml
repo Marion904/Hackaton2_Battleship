@@ -19,7 +19,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".BlueToothActivity"></activity>
+=======
+        <activity
+            android:name=".MenuActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/FullscreenTheme"></activity>
+>>>>>>> 5a4ac0edb254ebe82bf556dab6597ab922df9669
     </application>
 
 </manifest>
