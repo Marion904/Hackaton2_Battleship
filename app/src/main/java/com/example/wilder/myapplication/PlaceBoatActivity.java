@@ -14,6 +14,14 @@ public class PlaceBoatActivity extends AppCompatActivity {
 
     ArrayList<Ship> myFloat = new ArrayList<>();
     ArrayList<Cell> mCells = new ArrayList<>();
+    ArrayList<Cell> ship1Cells=new ArrayList<>();
+    ArrayList<Cell> ship2Cells=new ArrayList<>();
+    ArrayList<Cell> ship3Cells=new ArrayList<>();
+    ArrayList<Cell> ship4Cells=new ArrayList<>();
+    ArrayList<Cell> ship5Cells=new ArrayList<>();
+
+
+
     ImageAdapter mAdapter = new ImageAdapter(this, mCells);
     GridView gridview;
 
@@ -63,18 +71,24 @@ public class PlaceBoatActivity extends AppCompatActivity {
                                             }else{
                                                 ship1.setmStartx(position);
                                                 ship1.setmPositionned(true);
-                                                int x = position;
-                                                Cell ship1Cell1 = mCells.get(position);
-                                                Cell ship1Cell2 = mCells.get(position + 1);
-                                                Cell ship1Cell3 = mCells.get(position - 10);
-                                                Cell ship1Cell4 = mCells.get(position - 20);
-                                                ship1Cell1.setmBoat(true);
-                                                ship1Cell2.setmBoat(true);
-                                                ship1Cell3.setmBoat(true);
-                                                ship1Cell4.setmBoat(true);
+                                                ship1Cells.add(mCells.get(position));
+                                                ship1Cells.add(mCells.get(position + 1));
+                                                ship1Cells.add(mCells.get(position - 10));
+                                                ship1Cells.add(mCells.get(position - 20));
+                                                for(Cell cell:ship1Cells) {
+                                                    if (cell.mBoat) {
+                                                        Toast.makeText(PlaceBoatActivity.this, R.string.stackOverFlow, Toast.LENGTH_SHORT).show();
+                                                        ship1Cells.clear();
+                                                        ship1.setmPositionned(false);
+                                                        ship1.setmStartx(0);
+                                                        return;
+                                                    }
+                                                }
+                                                for(Cell cell:ship1Cells){
+                                                        cell.setmBoat(true);
+                                                }
                                                 mAdapter.notifyDataSetChanged();
                                             }
-
                                         }
 
                                         break;
@@ -87,16 +101,24 @@ public class PlaceBoatActivity extends AppCompatActivity {
                                             }else{
                                                 ship2.setmStartx(position);
                                                 ship2.setmPositionned(true);
-                                                Cell ship2Cell1 = mCells.get(position);
-                                                Cell ship2Cell2 = mCells.get(position + 1);
-                                                Cell ship2Cell3 = mCells.get(position - 1);
-                                                Cell ship2Cell4 = mCells.get(position - 9);
-                                                Cell ship2Cell5 = mCells.get(position - 11);
-                                                ship2Cell1.setmBoat(true);
-                                                ship2Cell2.setmBoat(true);
-                                                ship2Cell3.setmBoat(true);
-                                                ship2Cell4.setmBoat(true);
-                                                ship2Cell5.setmBoat(true);
+                                                ship2Cells.add(mCells.get(position));
+                                                ship2Cells.add(mCells.get(position + 1));
+                                                ship2Cells.add(mCells.get(position - 1));
+                                                ship2Cells.add(mCells.get(position - 9));
+                                                ship2Cells.add(mCells.get(position - 11));
+
+                                                for(Cell cell:ship2Cells){
+                                                    if(cell.mBoat){
+                                                        Toast.makeText(PlaceBoatActivity.this, R.string.stackOverFlow,Toast.LENGTH_SHORT).show();
+                                                        ship2Cells.clear();
+                                                        ship2.setmStartx(0);
+                                                        ship2.setmPositionned(false);
+                                                        return;
+                                                    }
+                                                }
+                                                for (Cell cell:ship2Cells){
+                                                    cell.setmBoat(true);
+                                                }
                                                 mAdapter.notifyDataSetChanged();
                                             }
 
@@ -113,12 +135,22 @@ public class PlaceBoatActivity extends AppCompatActivity {
                                                 }else{
                                                     ship4.setmStartx(position);
                                                     ship4.setmPositionned(true);
-                                                    Cell ship4Cell1 = mCells.get(position);
-                                                    Cell ship4Cell2 = mCells.get(position + 1);
-                                                    Cell ship4Cell3 = mCells.get(position - 1);
-                                                    ship4Cell1.setmBoat(true);
-                                                    ship4Cell2.setmBoat(true);
-                                                    ship4Cell3.setmBoat(true);
+                                                    ship4Cells.add(mCells.get(position));
+                                                    ship4Cells.add(mCells.get(position+1));
+                                                    ship4Cells.add(mCells.get(position-1));
+                                                    for(Cell cell:ship4Cells){
+                                                        if(cell.mBoat){
+                                                            Toast.makeText(PlaceBoatActivity.this, R.string.stackOverFlow,Toast.LENGTH_SHORT).show();
+                                                            ship4Cells.clear();
+                                                            ship4.setmStartx(0);
+                                                            ship4.setmPositionned(false);
+                                                            return;
+                                                        }
+                                                    }
+                                                    for(Cell cell:ship4Cells){
+                                                        cell.setmBoat(true);
+                                                    }
+
                                                     mAdapter.notifyDataSetChanged();
                                                 }
                                             }
@@ -128,12 +160,23 @@ public class PlaceBoatActivity extends AppCompatActivity {
                                             }else{
                                                 ship3.setmStartx(position);
                                                 ship3.setmPositionned(true);
-                                                Cell ship3Cell1 = mCells.get(position);
-                                                Cell ship3Cell2 = mCells.get(position + 1);
-                                                Cell ship3Cell3 = mCells.get(position - 1);
-                                                ship3Cell1.setmBoat(true);
-                                                ship3Cell2.setmBoat(true);
-                                                ship3Cell3.setmBoat(true);
+                                                ship3Cells.add(mCells.get(position));
+                                                ship3Cells.add(mCells.get(position+1));
+                                                ship3Cells.add(mCells.get(position-1));
+
+
+                                                for(Cell cell:ship3Cells){
+                                                    if(cell.mBoat){
+                                                        Toast.makeText(PlaceBoatActivity.this, R.string.stackOverFlow,Toast.LENGTH_SHORT).show();
+                                                        ship3Cells.clear();
+                                                        ship3.setmStartx(0);
+                                                        ship3.setmPositionned(false);
+                                                        return;
+                                                    }
+                                                }
+                                                for(Cell cell:ship3Cells){
+                                                    cell.setmBoat(true);
+                                                }
                                                 mAdapter.notifyDataSetChanged();
                                             }
                                         }
@@ -148,10 +191,20 @@ public class PlaceBoatActivity extends AppCompatActivity {
                                             }else{
                                                 ship5.setmStartx(position);
                                                 ship5.setmPositionned(true);
-                                                Cell ship5Cell1 = mCells.get(position);
-                                                Cell ship5Cell2 = mCells.get(position + 1);
-                                                ship5Cell1.setmBoat(true);
-                                                ship5Cell2.setmBoat(true);
+                                                ship5Cells.add(mCells.get(position));
+                                                ship5Cells.add(mCells.get(position+1));
+                                                for(Cell cell:ship5Cells){
+                                                    if(cell.mBoat){
+                                                        Toast.makeText(PlaceBoatActivity.this, R.string.stackOverFlow,Toast.LENGTH_SHORT).show();
+                                                        ship5Cells.clear();
+                                                        ship5.setmStartx(0);
+                                                        ship5.setmPositionned(false);
+                                                        return;
+                                                    }
+                                                }
+                                                for(Cell cell:ship5Cells){
+                                                    cell.setmBoat(true);
+                                                }
                                                 mAdapter.notifyDataSetChanged();
                                             }
                                         }
