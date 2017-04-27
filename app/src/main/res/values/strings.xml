@@ -15,4 +15,6 @@
     <string name="choose">Choisis un bateau!</string>
     <string name="bad_position">Trop près du bord!!</string>
     <string name="stackOverFlow">On empile pas les bateaux!!!</string>
+    <string name="start_game_button">C\'est parti!</string>
+    <string name="missing_ship">Place tous tes bateaux</string>
 </resources>
