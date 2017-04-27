@@ -69,7 +69,7 @@ public class BluetoothConnectionService {
             mmServerSocket = tmp;
         }
 
-        public void run(){
+        public void runw(){
             Log.d(TAG, "run: AcceptThread Running.");
 
             BluetoothSocket socket = null;

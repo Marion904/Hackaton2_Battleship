@@ -50,8 +50,8 @@ public class ImageAdapter extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.seatexture, R.drawable.seatexture,
-            R.drawable.seatexture, R.drawable.seatexture,
+            R.drawable.seatest, R.drawable.seatexture,
+            R.drawable.seatest, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,

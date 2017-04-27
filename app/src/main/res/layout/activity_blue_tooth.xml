@@ -67,22 +67,34 @@
         android:layout_toStartOf="@+id/buttonDevices" />
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="368dp"
+        android:layout_height="422dp"
         android:id="@+id/listViewUsers"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/buttonSend"
+        android:layout_alignParentStart="true" />
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Paired devices:"
-        android:id="@+id/textView2"
-        android:textColor="#8706ff"
-        android:textSize="25dp"
-        android:layout_below="@+id/buttonTurnOff"
         android:layout_alignLeft="@+id/listViewUsers"
-        android:layout_alignStart="@+id/listViewUsers" />
+        android:layout_alignStart="@+id/listViewUsers"
+        android:layout_below="@+id/buttonTurnOff"
+        android:text="Choose your oppenent"
+        android:textColor="#8706ff"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/buttonSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@+id/textviewTitre"
+        android:layout_toRightOf="@+id/textviewTitre"
+        android:text="Send" />
 
 </RelativeLayout>

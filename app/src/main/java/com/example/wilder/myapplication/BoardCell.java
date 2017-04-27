@@ -16,12 +16,17 @@ public class BoardCell implements Parcelable {
     protected boolean mOccupied;
     protected Ship mShipOver;
 
+
+
     public BoardCell(int x, int y) {
         mPosX = x;
         mPosY = y;
         mHitted = false; //Toucher
         mOccupied = false;// Placer sur la case
         mShipOver = null; //Couler
+    }
+    private BoardCell(){
+
     }
 
     private BoardCell(Parcel in) {

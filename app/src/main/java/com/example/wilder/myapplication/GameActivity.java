@@ -47,6 +47,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 imageView.setImageResource(R.drawable.explodepng);
 
 
+
                 // onCreateDialog();
                 Toast.makeText(GameActivity.this, "Choisis ton bateau",
                         Toast.LENGTH_SHORT).show();
