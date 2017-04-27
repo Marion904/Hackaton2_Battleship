@@ -35,6 +35,7 @@ public class ImageAdapter extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
+            BoardCell boardCell = new BoardCell(1, 1);
             imageView = new ImageView(mContext);
             imageView.setLayoutParams(new GridView.LayoutParams(110, 110));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -68,7 +69,6 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
-            R.drawable.seatexture, R.drawable.seatexture, R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
@@ -77,7 +77,6 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
-            R.drawable.seatexture, R.drawable.seatexture, R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
@@ -86,7 +85,12 @@ public class ImageAdapter extends BaseAdapter {
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
-            R.drawable.seatexture, R.drawable.seatexture, R.drawable.seatexture, R.drawable.seatexture,
+            R.drawable.seatexture, R.drawable.seatexture,
+            R.drawable.seatexture, R.drawable.seatexture,
+            R.drawable.seatexture, R.drawable.seatexture,
+            R.drawable.seatexture, R.drawable.seatexture,
+            R.drawable.seatexture, R.drawable.seatexture,
+            R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,
             R.drawable.seatexture, R.drawable.seatexture,

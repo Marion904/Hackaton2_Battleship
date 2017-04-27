@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener{
@@ -48,11 +49,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
+
+
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
+
+                ImageView imageView = (ImageView) v ;
+                imageView.setImageResource(R.drawable.explodepng);
+
+              
                 onCreateDialog();
-                Toast.makeText(GameActivity.this, "Choisis ton bateau",
+                Toast.makeText(GameActivity.this, "Choisis ton bateau")
                         Toast.LENGTH_SHORT).show();
             }
         });
