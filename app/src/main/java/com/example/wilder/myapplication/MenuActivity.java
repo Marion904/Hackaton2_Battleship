@@ -1,5 +1,6 @@
 package com.example.wilder.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -33,6 +34,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         int i = v.getId();
 
         if (i == R.id.OnePlayer){
+
+            startActivity(new Intent(MenuActivity.this, GameActivity.class));
 
         }
         if (i == R.id.TwoPlayerBluetooth){
