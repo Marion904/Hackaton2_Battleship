@@ -1,10 +1,13 @@
 package com.example.wilder.myapplication;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by wilder on 27/04/17.
  */
 
-public class Ship implements {
+public class Ship implements Parcelable{
 
     private final int mType;
     private final int mSize;
@@ -39,6 +42,28 @@ public class Ship implements {
 
         mHit=0;
     }
+
+    protected Ship(Parcel in) {
+        mType = in.readInt();
+        mSize = in.readInt();
+        mName = in.readString();
+        mSunk = in.readByte() != 0;
+        mHit = in.readInt();
+        mPositionned = in.readByte() != 0;
+        mStartx = in.readInt();
+    }
+
+    public static final Creator<Ship> CREATOR = new Creator<Ship>() {
+        @Override
+        public Ship createFromParcel(Parcel in) {
+            return new Ship(in);
+        }
+
+        @Override
+        public Ship[] newArray(int size) {
+            return new Ship[size];
+        }
+    };
 
     public int getmType() {
         return mType;
@@ -102,5 +127,21 @@ public class Ship implements {
 
     public boolean ismPositionned() {
         return mPositionned;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(mType);
+        dest.writeInt(mSize);
+        dest.writeString(mName);
+        dest.writeByte((byte) (mSunk ? 1 : 0));
+        dest.writeInt(mHit);
+        dest.writeByte((byte) (mPositionned ? 1 : 0));
+        dest.writeInt(mStartx);
     }
 }

@@ -2,7 +2,6 @@ package com.example.wilder.myapplication;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,7 +19,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     Ship ship2 = new Ship(4,3,"UShape");
     Ship ship3 = new Ship(3,3,"Line3");
     Ship ship4 = new Ship(2,2,"Line2");
-    Ship ship5 = new Ship(3,3,"Line3");
+    Ship ship5 = new Ship(3,3,"Line2");
 
 
 
@@ -42,48 +41,64 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
+                                    final int position, long id) {
 
                 ImageView imageView = (ImageView) v ;
                 imageView.setImageResource(R.drawable.explodepng);
-                onCreateDialog();
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(GameActivity.this);
+                builder.setTitle(R.string.pick_ship)
+                        .setItems(R.array.ships_array, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                switch (which){
+                                    case 0:/**NavireL**/
+                                        if(ship1.getmPositionned()){
+                                            Toast.makeText(GameActivity.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT);
+                                            return;
+                                        }
+
+                                        ship1.setmStartx(position);
+                                        positionShip(ship1);
+
+                                        break;
+                                    case 1:/**Navire U**/
+                                        if(ship2.getmPositionned()){
+                                            Toast.makeText(GameActivity.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT);
+                                            return;
+                                        }
+                                        ship2.setmStartx(position);
+                                        positionShip(ship2);
+                                        break;
+
+                                    case 2:/**Navire L3**/
+                                        if(ship3.getmPositionned()){
+                                            Toast.makeText(GameActivity.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT);
+                                            return;
+                                        }
+                                        ship3.setmStartx(position);
+                                        positionShip(ship3);
+                                        break;
+                                    default:/**Navire L2**/
+                                        if(ship4.getmPositionned()){
+                                            if(ship5.getmPositionned()) {
+                                                Toast.makeText(GameActivity.this, getString(R.string.AlreadyAfloat), Toast.LENGTH_SHORT);
+                                                return;
+                                            }
+                                            ship5.setmStartx(position);
+                                            positionShip(ship5);
+                                            break;
+                                        }
+                                        ship4.setmStartx(position);
+                                        positionShip(ship4);
+                                        break;
+                                }
+                            }
+                        });
+                builder.show();
                 Toast.makeText(GameActivity.this, "Choisis ton bateau",Toast.LENGTH_SHORT).show();
             }
         });
 
 
-    }
-
-    public void onCreateDialog() {
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(GameActivity.this);
-        builder.setTitle(R.string.pick_ship)
-                .setItems(R.array.ships_array, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case 0:/**
-                                NavireL**/
-                                if(ship1.getmPositionned()){
-                                    Toast.makeText(GameActivity.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT);
-                                    return;
-                                }
-                                ship1.setmStartx(position);
-                                mChaussette.setmCategory(SyncStateContract.Constants.DATABASE_PATH_CATEGORY_1);
-                                mDatabase.child(SyncStateContract.Constants.DATABASE_PATH_CATEGORY).child(SyncStateContract.Constants.DATABASE_PATH_CATEGORY_1).child(mChaussette.getmIdChaussette()).setValue(mChaussette);
-                                break;
-                            case 1:/**
-                                mChaussette.setmCategory(Constants.DATABASE_PATH_CATEGORY_2);
-                                mDatabase.child(Constants.DATABASE_PATH_CATEGORY).child(Constants.DATABASE_PATH_CATEGORY_2).child(mChaussette.getmIdChaussette()).setValue(mChaussette);
-                                break;**/
-                            case 2:/**
-                                mChaussette.setmCategory(Constants.DATABASE_PATH_CATEGORY_3);
-                                mDatabase.child(Constants.DATABASE_PATH_CATEGORY).child(Constants.DATABASE_PATH_CATEGORY_3).child(mChaussette.getmIdChaussette()).setValue(mChaussette);
-                                break;**/
-                            default:
-                                break;
-                        }
-                    }
-                });
-        builder.show();
     }
 
     public void positionShip(final Ship ship){
@@ -109,9 +124,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 });
         direction.show();
 
-        if(ship.getmShipType()==ShipType.LINE2){
-
-        }
     }
     @Override
     public void onClick(View v) {
