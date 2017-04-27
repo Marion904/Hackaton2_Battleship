@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class PlaceBoat extends AppCompatActivity {
+public class PlaceBoatActivity extends AppCompatActivity {
 
     ArrayList<Ship> myFloat = new ArrayList<>();
     ArrayList<Cell> mCells = new ArrayList<>();
@@ -55,17 +55,17 @@ public class PlaceBoat extends AppCompatActivity {
 
               
 
-                Toast.makeText(PlaceBoat.this, "Choisis ton bateau",
+                Toast.makeText(PlaceBoatActivity.this, "Choisis ton bateau",
                         Toast.LENGTH_SHORT).show();
 
-                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(PlaceBoat.this);
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(PlaceBoatActivity.this);
                 builder.setTitle(R.string.pick_ship)
                         .setItems(R.array.ships_array, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 switch (which){
                                     case 0:/**NavireL**/
                                         if(ship1.getmPositionned()){
-                                            Toast.makeText(PlaceBoat.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(PlaceBoatActivity.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT).show();
                                             return;
                                         }
                                         ship1.setmStartx(position);
@@ -88,7 +88,7 @@ public class PlaceBoat extends AppCompatActivity {
                                         break;
                                     case 1:/**Navire U**/
                                         if(ship2.getmPositionned()){
-                                            Toast.makeText(PlaceBoat.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT);
+                                            Toast.makeText(PlaceBoatActivity.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT);
                                             break;
                                         }
                                         ship2.setmStartx(position);
@@ -97,7 +97,7 @@ public class PlaceBoat extends AppCompatActivity {
 
                                     case 2:/**Navire L3**/
                                         if(ship3.getmPositionned()){
-                                            Toast.makeText(PlaceBoat.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT);
+                                            Toast.makeText(PlaceBoatActivity.this,getString(R.string.AlreadyAfloat),Toast.LENGTH_SHORT);
                                          break;
                                         }
                                         ship3.setmStartx(position);
@@ -106,7 +106,7 @@ public class PlaceBoat extends AppCompatActivity {
                                     case 3:/**Navire L2**/
                                         if(ship4.getmPositionned()){
                                             if(ship5.getmPositionned()) {
-                                                Toast.makeText(PlaceBoat.this, getString(R.string.AlreadyAfloat), Toast.LENGTH_SHORT);
+                                                Toast.makeText(PlaceBoatActivity.this, getString(R.string.AlreadyAfloat), Toast.LENGTH_SHORT);
                                             }
                                             ship5.setmStartx(position);
                                             directShip(ship5);
@@ -116,7 +116,7 @@ public class PlaceBoat extends AppCompatActivity {
                                         directShip(ship4);
                                         break;
                                     default:
-                                        Toast.makeText(PlaceBoat.this, R.string.choose,Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(PlaceBoatActivity.this, R.string.choose,Toast.LENGTH_SHORT).show();
                                 }
 
                                 if (ship1.ismPositionned() && ship2.ismPositionned() &&
@@ -125,7 +125,7 @@ public class PlaceBoat extends AppCompatActivity {
                                     int[] positionTab = new int[]{ship1.getmStartx(), ship2.getmStartx(),ship3.getmStartx(),
                                             ship4.getmStartx() , ship5.getmStartx()};
 
-                                    Intent transferDatas = new Intent(PlaceBoat.this , GameActivity.class);
+                                    Intent transferDatas = new Intent(PlaceBoatActivity.this , GameActivity.class);
                                     transferDatas.putExtra("oui", positionTab);
                                     startActivity(transferDatas);
                                     finish();
@@ -138,7 +138,7 @@ public class PlaceBoat extends AppCompatActivity {
                             }
                         });
                 builder.show();
-                Toast.makeText(PlaceBoat.this, "Choisis ton bateau",Toast.LENGTH_SHORT).show();
+                Toast.makeText(PlaceBoatActivity.this, "Choisis ton bateau",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -147,7 +147,7 @@ public class PlaceBoat extends AppCompatActivity {
     }
 
     public void directShip(final Ship ship){
-        android.app.AlertDialog.Builder direction = new android.app.AlertDialog.Builder(PlaceBoat.this);
+        android.app.AlertDialog.Builder direction = new android.app.AlertDialog.Builder(PlaceBoatActivity.this);
         direction.setTitle(R.string.orientation)
                 .setItems(R.array.orientation_array, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

@@ -35,7 +35,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         if (i == R.id.OnePlayer){
 
-            startActivity(new Intent(MenuActivity.this, PlaceBoat.class));
+            startActivity(new Intent(MenuActivity.this, PlaceBoatActivity.class));
 
         }
         if (i == R.id.TwoPlayerBluetooth){
