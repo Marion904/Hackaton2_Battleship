@@ -13,13 +13,15 @@ public class GameActivity extends AppCompatActivity {
 
     ArrayList<Cell> mCells = new ArrayList<>();
     ImageAdapter mAdapter = new ImageAdapter(this, mCells);
-    GridView gridview;
+    GridView gridview,gridviewMinor;
 
+/**
     Ship ship1 = new Ship(1,4,"LShape");
     Ship ship2 = new Ship(4,5,"UShape");
     Ship ship3 = new Ship(3,3,"Line3");
     Ship ship4 = new Ship(3,3,"Line3");
     Ship ship5 = new Ship(2,2,"Line2");
+ **/
 
 
 
@@ -29,15 +31,23 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+
         Intent startGame = getIntent();
         ArrayList<Cell> myCells = startGame.getParcelableArrayListExtra("oui");
         ImageAdapter myAdapter2 = new ImageAdapter(GameActivity.this,myCells);
 
 
 
-        gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(myAdapter2);
+        gridviewMinor = (GridView) findViewById(R.id.gridviewMinor);
+        gridviewMinor.setAdapter(myAdapter2);
 
+        for (int i = 0; i < 100; i++) {
+            mCells.add(new Cell(i));
+        }
+
+
+        gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setAdapter(mAdapter);
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, final View v,
