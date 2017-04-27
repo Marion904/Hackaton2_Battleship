@@ -3,21 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00000"
+    android:background="#000000"
     tools:context="com.example.wilder.myapplication.MenuActivity">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-
-
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/mainship"
         android:layout_marginBottom="420dp"
@@ -30,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/torpedo"
-        android:textSize="45dp"
+        android:textSize="35dp"
         android:textColor="#ffffff"
         android:text="One Player"
         android:layout_alignParentTop="true"
@@ -43,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/torpedo"
-        android:textSize="45dp"
+        android:textSize="35dp"
         android:textColor="#ffffff"
         android:text="Two Player"
         android:layout_alignParentBottom="true"
