@@ -17,4 +17,7 @@
     <string name="stackOverFlow">On empile pas les bateaux!!!</string>
     <string name="start_game_button">C\'est parti!</string>
     <string name="missing_ship">Place tous tes bateaux</string>
+    <string name="congrats">Bravo!!! tu as gagné!!!</string>
+    <string name="new_game">Rejouer</string>
+    <string name="looser">Bouh perdant!!!</string>
 </resources>

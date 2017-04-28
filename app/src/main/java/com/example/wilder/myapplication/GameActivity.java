@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,6 +13,7 @@ import java.util.Random;
 public class GameActivity extends AppCompatActivity {
 
     ArrayList<CellHidden> mCells = new ArrayList<>();
+    ArrayList<Cell> myCells = new ArrayList<>();
     ImageAdapter2 foeAdapter = new ImageAdapter2(this, mCells);
     GridView gridview,gridviewMinor;
 
@@ -29,6 +29,10 @@ public class GameActivity extends AppCompatActivity {
     ArrayList<CellHidden> ship4Cells=new ArrayList<>();
     ArrayList<CellHidden> ship5Cells=new ArrayList<>();
 
+    ArrayList<Cell> casualities = new ArrayList<>();
+    ArrayList<CellHidden> successes = new ArrayList<>();
+
+    String results = new String;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         Intent startGame = getIntent();
-        final ArrayList<Cell> myCells = startGame.getParcelableArrayListExtra("oui");
+        myCells = startGame.getParcelableArrayListExtra("oui");
         ImageAdapter myAdapter2 = new ImageAdapter(GameActivity.this,myCells);
 
         gridviewMinor = (GridView) findViewById(R.id.gridviewMinor);
@@ -60,11 +64,26 @@ public class GameActivity extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, final View v,
                                     final int position, long id) {
-                CellHidden shoot = mCells.get(position);
-                shoot.setmHit(true);
+                CellHidden target = mCells.get(position);
+                target.setmHit(true);
                 foeAdapter.notifyDataSetChanged();
-                Toast.makeText(GameActivity.this, ""+shoot.mBoat, Toast.LENGTH_SHORT).show();
 
+                //If we miss
+                if(target.mBoat){
+                    successes.add(target);
+                }
+                else{
+                    randomShoot();
+                }
+                if(successes.size()==17){
+                    results = getString(R.string.congrats);
+                }else if(casualities.size()==17){
+                    results = getString(R.string.looser);
+                }
+                if(results!=""){
+                    Intent endGame = new Intent(GameActivity.this,WinnerActivity.class);
+                    endGame.putExtra("results",results);
+                }
             }
         });
 
@@ -198,6 +217,12 @@ public class GameActivity extends AppCompatActivity {
             cell.setmBoat(true);
         }
         foeAdapter.notifyDataSetChanged();
+    }
+
+    public void randomShoot(){
+        int position = new Random().nextInt(99);
+        Cell shoot = myCells.get(position);
+        shoot.setmHit(true);
     }
 }
 
