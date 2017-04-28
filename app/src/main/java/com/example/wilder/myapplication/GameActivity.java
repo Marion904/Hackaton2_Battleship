@@ -32,6 +32,10 @@ public class GameActivity extends AppCompatActivity {
     ArrayList<Cell> casualities = new ArrayList<>();
     ArrayList<CellHidden> successes = new ArrayList<>();
 
+    int lastTurn;
+    int shootPosition;
+    ArrayList<Integer> potentialShoot = new ArrayList<>();
+
     String results = "";
     boolean appTurn=false;
 
@@ -81,7 +85,12 @@ public class GameActivity extends AppCompatActivity {
                 }else{
                     appTurn=true;
                     while(appTurn==true){
-                        randomShoot();
+                        if(potentialShoot.size()==0){
+                            shootPosition = randomShoot();
+                        }else {
+                            lastTurn = newShoot(potentialShoot);
+                            shootPosition = lastTurn;
+                        }
                         if (casualities.size() == 17) {
                             results = getString(R.string.looser);
                             Intent endGame = new Intent(GameActivity.this, WinnerActivity.class);
@@ -235,17 +244,75 @@ public class GameActivity extends AppCompatActivity {
         foeAdapter.notifyDataSetChanged();
     }
 
-    public void randomShoot(){
+    public int randomShoot(){
         int position = new Random().nextInt(99);
         Cell shoot = myCells.get(position);
         shoot.setmHit(true);
         if(shoot.mBoat){
             casualities.add(shoot);
+            potentialShoot.add(position+1);
+            potentialShoot.add(position+1);
+            potentialShoot.add(position+10);
+            potentialShoot.add(position-10);
+            potentialShoot.add(position+9);
+            potentialShoot.add(position-9);
+            potentialShoot.add(position+11);
+            potentialShoot.add(position-11);
+            for(int i = 0 ; i< potentialShoot.size();i++){
+                if(potentialShoot.get(i)>99||
+                        potentialShoot.get(i)<0){
+                    potentialShoot.remove(i);
+                }
+            }
             appTurn=true;
         }else{
             appTurn=false;
         }
-        //return shoot;
+        return position;
+    }
+
+    public int newShoot(ArrayList<Integer> tab){
+        int position =tab.get(0);
+        Cell shoot = myCells.get(position);
+        shoot.setmHit(true);
+        if(shoot.mBoat){
+            for(int i = 0 ; i< potentialShoot.size();i++){
+                if(potentialShoot.get(i)==position+1||
+                        potentialShoot.get(i)==position+11||
+                        potentialShoot.get(i)==position-9||
+                        potentialShoot.get(i)==position-1||
+                        potentialShoot.get(i)==position+10||
+                        potentialShoot.get(i)==position+9||
+                        potentialShoot.get(i)==position-11||
+                        potentialShoot.get(i)==position-10){
+                    potentialShoot.remove(i);
+                }
+            }
+            potentialShoot.add(position+1);
+            potentialShoot.add(position+1);
+            potentialShoot.add(position+10);
+            potentialShoot.add(position-10);
+            potentialShoot.add(position+9);
+            potentialShoot.add(position-9);
+            potentialShoot.add(position+11);
+            potentialShoot.add(position-11);
+            for(int i = 0 ; i< potentialShoot.size();i++){
+                if(potentialShoot.get(i)>99||
+                        potentialShoot.get(i)<0){
+                    potentialShoot.remove(i);
+                }
+            }
+            casualities.add(shoot);
+            appTurn=true;
+        }else{
+            appTurn=false;
+        }
+        for(int j =0; j<potentialShoot.size();j++){
+            if(potentialShoot.get(j)==position){
+                potentialShoot.remove(j);
+            }
+        }
+        return position;
     }
 }
 
