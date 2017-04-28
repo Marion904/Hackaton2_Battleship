@@ -1,6 +1,7 @@
 package com.example.wilder.myapplication;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -38,6 +39,7 @@ public class GameActivity extends AppCompatActivity {
 
     String results = "";
     boolean appTurn=false;
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,13 +78,18 @@ public class GameActivity extends AppCompatActivity {
                 //If we miss
                 if(target.mBoat){
                     successes.add(target);
+                    hit();
+                    if ( successes.size()==10)
+                        destroyShip();
                     if(successes.size()==17) {
                         results = getString(R.string.congrats);
+                        winer();
                         Intent endGame = new Intent(GameActivity.this,WinnerActivity.class);
                         endGame.putExtra("results",results);
                         startActivity(endGame);
                     }
                 }else{
+
                     appTurn=true;
                     while(appTurn==true){
                         if(potentialShoot.size()==0){
@@ -90,8 +97,10 @@ public class GameActivity extends AppCompatActivity {
                         }else {
                             lastTurn = newShoot(potentialShoot);
                             shootPosition = lastTurn;
+
                         }
                         if (casualities.size() == 17) {
+                            looser();
                             results = getString(R.string.looser);
                             Intent endGame = new Intent(GameActivity.this, WinnerActivity.class);
                             endGame.putExtra("results", results);
@@ -313,6 +322,28 @@ public class GameActivity extends AppCompatActivity {
             }
         }
         return position;
+    }
+    public void hit() {
+        mp = MediaPlayer.create(GameActivity.this, R.raw.explosion);
+        mp.start();
+
+
+    }
+
+    public void destroyShip() {
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.suspen);
+        mp.start();
+
+    }
+
+
+    public void looser() {
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.loose);
+        mp.start();
+    }
+    public void winer() {
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.win);
+        mp.start();
     }
 }
 
