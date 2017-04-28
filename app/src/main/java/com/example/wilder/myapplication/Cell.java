@@ -11,17 +11,20 @@ public class Cell implements Parcelable{
     int mPosition;
     boolean mBoat;
     int mImageView;
+    boolean mHit;
 
     public Cell(int position){
         mPosition = position;
         mImageView = R.drawable.seatexture;
         mBoat=false;
+        mHit=false;
     }
 
     protected Cell(Parcel in) {
         mPosition = in.readInt();
         mBoat = in.readByte() != 0;
         mImageView = in.readInt();
+        mHit = in.readByte() != 0;
     }
 
     public static final Creator<Cell> CREATOR = new Creator<Cell>() {
@@ -51,7 +54,7 @@ public class Cell implements Parcelable{
     public void setmBoat(boolean mBoat) {
         this.mBoat = mBoat;
         if(mBoat){
-            mImageView=R.drawable.explodepng;
+            mImageView=R.drawable.acier;
         }else{
             mImageView=R.drawable.seatexture;
         }
@@ -59,6 +62,21 @@ public class Cell implements Parcelable{
 
     public int getmImageView() {
         return mImageView;
+    }
+
+    public void setmImageView(int mImageView) {
+        this.mImageView = mImageView;
+    }
+
+    public boolean ismHit() {
+        return mHit;
+    }
+
+    public void setmHit(boolean mHit) {
+        this.mHit = mHit;
+        if(mHit && this.mBoat){
+            mImageView=R.drawable.explodepng;
+        }
     }
 
     @Override
@@ -71,5 +89,13 @@ public class Cell implements Parcelable{
         dest.writeInt(mPosition);
         dest.writeByte((byte) (mBoat ? 1 : 0));
         dest.writeInt(mImageView);
+        dest.writeByte((byte) (mHit ? 1 : 0));
     }
 }
+/**    this.mBoat = mBoat;
+        if(mBoat){
+            mImageView=R.drawable.explodepng;
+        }else{
+            mImageView=R.drawable.seatexture;
+        }
+    }**/
