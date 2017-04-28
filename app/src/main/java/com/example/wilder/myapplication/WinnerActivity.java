@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,15 +15,15 @@ import pl.droidsonroids.gif.GifTextView;
 public class WinnerActivity extends AppCompatActivity implements View.OnClickListener{
     String results;
     TextView result;
-    ImageView imageViewBackMenu;
+    Button buttonMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winner);
 
-        imageViewBackMenu = (ImageView)findViewById(R.id.imageViewBackMenu);
-        this.imageViewBackMenu.setOnClickListener(this);
+        buttonMenu = (Button)findViewById(R.id.buttonMenu);
+        this.buttonMenu.setOnClickListener(this);
 
         result = (TextView) findViewById(R.id.results);
 
@@ -36,7 +37,7 @@ public class WinnerActivity extends AppCompatActivity implements View.OnClickLis
 
     }
     public void onClick(View v){
-        if(v == imageViewBackMenu){
+        if(v == buttonMenu){
             startActivity(new Intent(this, MenuActivity.class));
 
         }
