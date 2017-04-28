@@ -32,14 +32,15 @@ public class GameActivity extends AppCompatActivity {
     ArrayList<Cell> casualities = new ArrayList<>();
     ArrayList<CellHidden> successes = new ArrayList<>();
 
-    String results = new String;
+    String results = "";
+    boolean appTurn=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        Intent startGame = getIntent();
+        final Intent startGame = getIntent();
         myCells = startGame.getParcelableArrayListExtra("oui");
         ImageAdapter myAdapter2 = new ImageAdapter(GameActivity.this,myCells);
 
@@ -71,18 +72,23 @@ public class GameActivity extends AppCompatActivity {
                 //If we miss
                 if(target.mBoat){
                     successes.add(target);
-                }
-                else{
-                    randomShoot();
-                }
-                if(successes.size()==17){
-                    results = getString(R.string.congrats);
-                }else if(casualities.size()==17){
-                    results = getString(R.string.looser);
-                }
-                if(results!=""){
-                    Intent endGame = new Intent(GameActivity.this,WinnerActivity.class);
-                    endGame.putExtra("results",results);
+                    if(successes.size()==17) {
+                        results = getString(R.string.congrats);
+                        Intent endGame = new Intent(GameActivity.this,WinnerActivity.class);
+                        endGame.putExtra("results",results);
+                        startActivity(endGame);
+                    }
+                }else{
+                    appTurn=true;
+                    while(appTurn==true){
+                        randomShoot();
+                        if (casualities.size() == 17) {
+                            results = getString(R.string.looser);
+                            Intent endGame = new Intent(GameActivity.this, WinnerActivity.class);
+                            endGame.putExtra("results", results);
+                            startActivity(endGame);
+                        }
+                    }
                 }
             }
         });
@@ -123,15 +129,17 @@ public class GameActivity extends AppCompatActivity {
                     ship2Cells.add(mCells.get(position - 11));
                 }
             }
-            for(CellHidden cell:ship2Cells){
-                if(cell.mBoat){
-                    ship2Cells.clear();
+            for(int j = 0; j<ship2Cells.size();j++){
+                if(ship2Cells.get(j).mBoat){
+                    //ship2Cells.clear();
+                    for(int i = 0; i< ship2Cells.size();i++){
+                        ship2Cells.remove(i);
+                    }
                     ship2.setmStartx(0);
                     ship2.setmPositionned(false);
                 }
             }
         }
-
         for(CellHidden cell:ship2Cells){
             cell.setmBoat(true);
         }
@@ -150,9 +158,12 @@ public class GameActivity extends AppCompatActivity {
                     ship3Cells.add(mCells.get(position-1));
                 }
             }
-            for(CellHidden cell:ship3Cells){
-                if(cell.mBoat){
-                    ship3Cells.clear();
+            for(int j =0; j<ship3Cells.size();j++){
+                if(ship3Cells.get(j).mBoat){
+                    //ship3Cells.clear();
+                    for(int i = 0; i< ship3Cells.size();i++){
+                        ship3Cells.remove(i);
+                    }
                     ship3.setmStartx(0);
                     ship3.setmPositionned(false);
                 }
@@ -177,9 +188,12 @@ public class GameActivity extends AppCompatActivity {
                     ship4Cells.add(mCells.get(position-1));
                 }
             }
-            for(CellHidden cell:ship4Cells){
-                if(cell.mBoat){
-                    ship4Cells.clear();
+            for(int j=0;j<ship4Cells.size();j++){
+                if(ship4Cells.get(j).mBoat){
+                    //ship4Cells.clear();
+                    for(int i = 0; i< ship4Cells.size();i++){
+                        ship4Cells.remove(i);
+                    }
                     ship4.setmStartx(0);
                     ship4.setmPositionned(false);
                 }
@@ -201,12 +215,14 @@ public class GameActivity extends AppCompatActivity {
                     ship5.setmPositionned(true);
                     ship5Cells.add(mCells.get(position));
                     ship5Cells.add(mCells.get(position+1));
-                    ship5Cells.add(mCells.get(position-1));
                 }
             }
-            for(CellHidden cell:ship5Cells){
-                if(cell.mBoat){
-                    ship5Cells.clear();
+            for(int j = 0; j<ship5Cells.size();j++){
+                if(ship5Cells.get(j).mBoat){
+                    //ship5Cells.clear();
+                    for(int i = 0; i< ship5Cells.size();i++){
+                        ship5Cells.remove(i);
+                    }
                     ship5.setmStartx(0);
                     ship5.setmPositionned(false);
                 }
@@ -223,6 +239,13 @@ public class GameActivity extends AppCompatActivity {
         int position = new Random().nextInt(99);
         Cell shoot = myCells.get(position);
         shoot.setmHit(true);
+        if(shoot.mBoat){
+            casualities.add(shoot);
+            appTurn=true;
+        }else{
+            appTurn=false;
+        }
+        //return shoot;
     }
 }
 
