@@ -20,4 +20,5 @@
     <string name="congrats">Bravo!!! tu as gagné!!!</string>
     <string name="new_game">Rejouer</string>
     <string name="looser">Bouh perdant!!!</string>
+    <string name="back_menu">Back menu</string>
 </resources>
