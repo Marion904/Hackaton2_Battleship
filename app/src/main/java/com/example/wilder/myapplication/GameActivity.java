@@ -35,6 +35,7 @@ public class GameActivity extends AppCompatActivity {
     int lastTurn;
     int shootPosition;
     ArrayList<Integer> potentialShoot = new ArrayList<>();
+    ArrayList<Integer> alreadyShot = new ArrayList<>();
 
     String results = "";
     boolean appTurn=false;
@@ -245,13 +246,33 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public int randomShoot(){
-        int position = new Random().nextInt(99);
-        Cell shoot = myCells.get(position);
-        shoot.setmHit(true);
+        Cell shoot = new Cell(0);
+        int position=-1;
+        while(position<0){
+            position = new Random().nextInt(99);
+            shoot = myCells.get(position);
+            if(shoot.mHit){
+                position=-1;
+            }else{
+                shoot.setmHit(true);
+            }
+        }
         if(shoot.mBoat){
             casualities.add(shoot);
+            for(int i = 0 ; i< potentialShoot.size();i++) {
+                if (potentialShoot.get(i) == position + 1 ||
+                        potentialShoot.get(i) == position + 11 ||
+                        potentialShoot.get(i) == position - 9 ||
+                        potentialShoot.get(i) == position - 1 ||
+                        potentialShoot.get(i) == position + 10 ||
+                        potentialShoot.get(i) == position + 9 ||
+                        potentialShoot.get(i) == position - 11 ||
+                        potentialShoot.get(i) == position - 10) {
+                    potentialShoot.remove(i);
+                }
+            }
             potentialShoot.add(position+1);
-            potentialShoot.add(position+1);
+            potentialShoot.add(position-1);
             potentialShoot.add(position+10);
             potentialShoot.add(position-10);
             potentialShoot.add(position+9);
@@ -268,10 +289,20 @@ public class GameActivity extends AppCompatActivity {
         }else{
             appTurn=false;
         }
+        alreadyShot.add(position);
         return position;
     }
 
     public int newShoot(ArrayList<Integer> tab){
+        int max = tab.size();
+        for(int j = 0; j<max; j++){
+            for(int k=0;k<alreadyShot.size();k++){
+                if(tab.get(j)==alreadyShot.get(k)){
+                    tab.remove(j);
+                    max--;
+                }
+            }
+        }
         int position =tab.get(0);
         Cell shoot = myCells.get(position);
         shoot.setmHit(true);
@@ -289,7 +320,7 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
             potentialShoot.add(position+1);
-            potentialShoot.add(position+1);
+            potentialShoot.add(position-1);
             potentialShoot.add(position+10);
             potentialShoot.add(position-10);
             potentialShoot.add(position+9);
