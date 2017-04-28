@@ -22,8 +22,10 @@ public class WinnerActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winner);
 
+
         buttonMenu = (Button)findViewById(R.id.buttonMenu);
         this.buttonMenu.setOnClickListener(this);
+
 
         result = (TextView) findViewById(R.id.results);
 
