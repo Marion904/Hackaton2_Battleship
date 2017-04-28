@@ -226,6 +226,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void createShip5(){
+        boolean clearShip=false;
         while (!ship5.getmPositionned()){
             while (ship5.getmStartx()==0){
                 int position = new Random().nextInt(99);
@@ -238,13 +239,13 @@ public class GameActivity extends AppCompatActivity {
             }
             for(int j = 0; j<ship5Cells.size();j++){
                 if(ship5Cells.get(j).mBoat){
-                    //ship5Cells.clear();
-                    for(int i = 0; i< ship5Cells.size();i++){
-                        ship5Cells.remove(i);
-                    }
-                    ship5.setmStartx(0);
-                    ship5.setmPositionned(false);
+                    clearShip=true;
                 }
+            }
+            if(clearShip==true){
+                ship5Cells.clear();
+                ship5.setmStartx(0);
+                ship5.setmPositionned(false);
             }
         }
 
@@ -303,14 +304,16 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public int newShoot(ArrayList<Integer> tab){
-        int max = tab.size();
-        for(int j = 0; j<max; j++){
+        ArrayList<Integer> toRemove = new ArrayList<>();
+        for(int j = 0; j<tab.size(); j++){
             for(int k=0;k<alreadyShot.size();k++){
                 if(tab.get(j)==alreadyShot.get(k)){
-                    tab.remove(j);
-                    max--;
+                    toRemove.add(j);
                 }
             }
+        }
+        for(int i=0;i<toRemove.size();i++){
+            tab.remove(toRemove.get(i));
         }
         int position =tab.get(0);
         Cell shoot = myCells.get(position);
