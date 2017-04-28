@@ -76,6 +76,8 @@ public class Cell implements Parcelable{
         this.mHit = mHit;
         if(mHit && this.mBoat){
             mImageView=R.drawable.explodepng;
+        }else if(mHit && !this.mBoat){
+            mImageView=R.drawable.seatexturegrey;
         }
     }
 
