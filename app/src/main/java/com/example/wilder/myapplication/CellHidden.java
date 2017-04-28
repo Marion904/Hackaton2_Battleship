@@ -49,9 +49,9 @@ public class CellHidden {
         this.mHit = mHit;
         if(this.mHit){
             if(this.mBoat) {
-                mImageView = R.drawable.seatexturegrey;
-            }else{
                 mImageView = R.drawable.explodepng;
+            }else{
+                mImageView = R.drawable.seatexturegrey;
             }
         }
     }
