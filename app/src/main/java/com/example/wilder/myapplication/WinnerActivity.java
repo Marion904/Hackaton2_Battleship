@@ -21,7 +21,7 @@ public class WinnerActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winner);
 
-        imageViewBackMenu = (ImageView)findViewById(R.id.imageViewBackMenu);
+        //imageViewBackMenu = (ImageView)findViewById(R.id.imageViewBackMenu);
         this.imageViewBackMenu.setOnClickListener(this);
 
         result = (TextView) findViewById(R.id.results);
