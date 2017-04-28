@@ -128,8 +128,8 @@ public class GameActivity extends AppCompatActivity {
                 ship1Cells.add(mCells.get(position - 20));
             }
         }
-        for(CellHidden cell:ship1Cells){
-            cell.setmBoat(true);
+        for(int i=0; i<ship1Cells.size();i++){
+            ship1Cells.get(i).setmBoat(true);
         }
         foeAdapter.notifyDataSetChanged();
     }
@@ -159,8 +159,8 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         }
-        for(CellHidden cell:ship2Cells){
-            cell.setmBoat(true);
+        for(int j = 0; j<ship2Cells.size();j++){
+            ship2Cells.get(j).setmBoat(true);
         }
         foeAdapter.notifyDataSetChanged();
     }
@@ -248,8 +248,8 @@ public class GameActivity extends AppCompatActivity {
             }
         }
 
-        for(CellHidden cell:ship5Cells){
-            cell.setmBoat(true);
+        for(int k =0;k<ship5Cells.size();k++){
+            ship5Cells.get(k).setmBoat(true);
         }
         foeAdapter.notifyDataSetChanged();
     }
